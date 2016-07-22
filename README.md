@@ -21,13 +21,14 @@ Think in terms of components! *Composition*
 
 
 ### NPM
-To start npm in the folder, $npm init
-to save a dependency in the package.json file, $npm install <module> --save
+To start npm in the folder, $npm init.
+
+To save a dependency in the package.json file, $npm install <module> --save
 
 ### Webpack
 It is a code bundler.
 
 What it needs to know:
-1. Your root JS file
-2. Which transformations to make in the code
-3. Location to spit the transformed code
+  1. Your root JS file
+  2. Which transformations to make in the code
+  3. Location to spit the transformed code
