@@ -1,0 +1,22 @@
+{
+  "name": "react-fundamentals",
+  "version": "1.0.0",
+  "description": "Exercises and project of React.js Fundamentals course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gionaufal/React-fundamentals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gionaufal/React-fundamentals/issues"
+  },
+  "homepage": "https://github.com/gionaufal/React-fundamentals#readme",
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}
