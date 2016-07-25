@@ -66,3 +66,131 @@ To run Babel inside Webpack, first you have to make a `.babelrc` file:
     "react"
   ]
 }`
+
+----
+
+###Props
+
+props are to components what arguments are to functions.
+
+example:
+`var FriendsContainer = React.createClass({
+  render: function(){
+    var name = 'Tyler McGinnis'
+    var friends = ['Ean Platter', 'Murphy Randall', 'Merrick Christensen']
+    return (
+      <div>
+        <h3> Name: {name} </h3>
+        <ShowList names={friends} />
+      </div>
+    )
+  }
+});
+
+render: function(){
+  var listItems = this.props.names.map(function(friend){
+    return <li> {friend} </li>;
+  });
+  return (
+    <div>
+      <h3> Friends </h3>
+      <ul>
+        {listItems}
+      </ul>
+    </div>
+  )
+}
+});
+
+`
+
+.map returns an array with the li elements.
+
+### functions
+
+f(D)=V
+
+A function takes in some data and returns a view
+
+`var getProfilePic = function (username) {
+  return 'https://photo.fb.com/' + username
+}
+var getProfileLink = function (username) {
+  return 'https://www.fb.com/' + username
+}
+var getProfileData = function (username) {
+  return {
+    pic: getProfilePic(username),
+    link: getProfileLink(username)
+  }
+}
+getProfileData('gionaufal')`
+
+To make these functions return some UI, all you have to do is use the render function in react.
+
+`var ProfilePic = react.createClass({
+    render: function(){
+      return(
+        <img src={'https://photo.fb.com/' + this.props.username} />
+        )
+    }
+  })
+
+  var ProfileLink = React.createClass({
+     render: function() {
+       return (
+         <a href={'https://www.fb.com/' + this.props.username}>
+           {this.props.username}
+         </a>
+       )
+     }
+   })
+
+   var Avatar = React.createClass({
+     render: function() {
+       return (
+         <div>
+           <ProfilePic username={this.props.username} />
+           <ProfileLink username={this.props.username} />
+         </div>
+       )
+     }
+   })
+   <Avatar username="gionaufal" />
+  `
+React 0.14 introduced Stateless Functional Components, so the code above can be written as below:
+
+` var ProfilePic = function (props) {
+   return <img src={'https://photo.fb.com/' + props.username} />
+ }
+ var ProfileLink = function (props) {
+   return (
+     <a href={'https://www.fb.com/' + props.username}>
+       {props.username}
+     </a>
+   )
+ }
+ var Avatar = function (props) {
+   return (
+     <div>
+       <ProfilePic username={props.username} />
+       <ProfileLink username={props.username} />
+     </div>
+   )
+ }
+ <Avatar username="tylermcginnis" />`
+
+
+React uses pure functions, there are no side effects. Given the same arguments, a function returns always the same result.
+
+The benefits of this approach:
+1. You don't need to know the current state of your app to run the function
+1. It's easy to test
+1. Easier to reuse
+
+React components should be FIRST:
+-Focused
+-Independent
+-Reusable
+-Small
+-Testable
