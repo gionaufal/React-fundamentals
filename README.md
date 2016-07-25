@@ -35,7 +35,7 @@ What it needs to know:
 
 The Webpack config file is called `webpack.config.js` and needs to be located in the root directory,
 
-`// In webpack.config.js - example with a coffeeScript loader
+```// In webpack.config.js - example with a coffeeScript loader
 module.exports = {
   entry: [
     './app/index.js'
@@ -50,7 +50,7 @@ module.exports = {
     path: __dirname + '/dist'
   },
 }
-`
+```
 
 To run webpack, first you have to install it. To install globally, `npm install -g webpack`. Then, to keep webpack watching your files and to run it whenever they change, `webpack -w`. To ship for production, `webpack -p`. This will do the previous and minify your code.
 
@@ -61,11 +61,11 @@ To run webpack, first you have to install it. To install globally, `npm install 
 
 To run Babel inside Webpack, first you have to make a `.babelrc` file:
 
-`{
+```{
   "presets": [
     "react"
   ]
-}`
+}```
 
 ----
 
@@ -74,7 +74,7 @@ To run Babel inside Webpack, first you have to make a `.babelrc` file:
 props are to components what arguments are to functions.
 
 example:
-`var FriendsContainer = React.createClass({
+```var FriendsContainer = React.createClass({
   render: function(){
     var name = 'Tyler McGinnis'
     var friends = ['Ean Platter', 'Murphy Randall', 'Merrick Christensen']
@@ -102,7 +102,7 @@ render: function(){
 }
 });
 
-`
+```
 
 .map returns an array with the li elements.
 
@@ -112,7 +112,7 @@ f(D)=V
 
 A function takes in some data and returns a view
 
-`var getProfilePic = function (username) {
+```var getProfilePic = function (username) {
   return 'https://photo.fb.com/' + username
 }
 var getProfileLink = function (username) {
@@ -124,11 +124,11 @@ var getProfileData = function (username) {
     link: getProfileLink(username)
   }
 }
-getProfileData('gionaufal')`
+getProfileData('gionaufal')```
 
 To make these functions return some UI, all you have to do is use the render function in react.
 
-`var ProfilePic = react.createClass({
+```var ProfilePic = react.createClass({
     render: function(){
       return(
         <img src={'https://photo.fb.com/' + this.props.username} />
@@ -156,11 +156,11 @@ To make these functions return some UI, all you have to do is use the render fun
        )
      }
    })
-   <Avatar username="gionaufal" />
-  `
+   <Avatar username="gionaufal" />```
+   
 React 0.14 introduced Stateless Functional Components, so the code above can be written as below:
 
-` var ProfilePic = function (props) {
+``` var ProfilePic = function (props) {
    return <img src={'https://photo.fb.com/' + props.username} />
  }
  var ProfileLink = function (props) {
@@ -178,7 +178,7 @@ React 0.14 introduced Stateless Functional Components, so the code above can be 
      </div>
    )
  }
- <Avatar username="tylermcginnis" />`
+ <Avatar username="tylermcginnis" />```
 
 
 React uses pure functions, there are no side effects. Given the same arguments, a function returns always the same result.
