@@ -124,7 +124,8 @@ var getProfileData = function (username) {
     link: getProfileLink(username)
   }
 }
-getProfileData('gionaufal')```
+getProfileData('gionaufal')
+```
 
 To make these functions return some UI, all you have to do is use the render function in react.
 
@@ -156,8 +157,9 @@ To make these functions return some UI, all you have to do is use the render fun
        )
      }
    })
-   <Avatar username="gionaufal" />```
-   
+   <Avatar username="gionaufal" />
+   ```
+
 React 0.14 introduced Stateless Functional Components, so the code above can be written as below:
 
 ``` var ProfilePic = function (props) {
@@ -178,7 +180,8 @@ React 0.14 introduced Stateless Functional Components, so the code above can be 
      </div>
    )
  }
- <Avatar username="tylermcginnis" />```
+ <Avatar username="tylermcginnis" />
+ ```
 
 
 React uses pure functions, there are no side effects. Given the same arguments, a function returns always the same result.
@@ -189,8 +192,38 @@ The benefits of this approach:
 1. Easier to reuse
 
 React components should be FIRST:
--Focused
--Independent
--Reusable
--Small
--Testable
+- Focused
+- Independent
+- Reusable
+- Small
+- Testable
+
+----
+
+###Stateless Functional components
+
+Since is so common to react components to have only a render method, since React 0.14 you can remove the createClass abstraction and use just a plain function:
+
+this code
+
+```
+var HelloWorld = React.createClass({
+  render: function () {
+    return (
+      <div>Hello {this.props.name}</div>
+    )
+  }
+})
+ReactDOM.render(<HelloWorld name='Tyler' />, document.getElementById('app'))
+```
+
+can be written like this
+```
+function HelloWorld (props) {
+  return (
+    <div>Hello {props.name}</div>
+  )
+}
+ReactDOM.render(<HelloWorld name='Tyler' />, document.getElementById('app'))
+```
+Besides being simpler to write, this way you can separate presentational components vs other components.
