@@ -227,3 +227,15 @@ function HelloWorld (props) {
 ReactDOM.render(<HelloWorld name='Tyler' />, document.getElementById('app'))
 ```
 Besides being simpler to write, this way you can separate presentational components vs other components.
+
+
+-----
+
+
+###Life Cycle Events
+
+1. When a component gets mounted to the DOM and unmounted.
+2. When a component receives new data.
+
+####Mounting/Unmounting
+These methods are invoked only once during the life of the component
