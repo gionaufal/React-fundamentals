@@ -1,5 +1,6 @@
 var React = require('react');
 var transparentBg = require('../styles').transparentBg;
+var Prompt = require('../components/Prompt');
 
 var PromptContainer = React.createClass({
 
@@ -13,13 +14,13 @@ var PromptContainer = React.createClass({
     }
   },
 
-  onUpdateUser: function(e){
+  handleUpdateUser: function(e){
     this.setState({
       username: e.target.value
     });
   },
 
-  onSubmitUser: function(e){
+  handleSubmitUser: function(e){
     e.preventDefault();
     var username = this.state.username;
     this.setState({
@@ -40,33 +41,16 @@ var PromptContainer = React.createClass({
   },
 
   render: function(){
-    console.log(this)
-    return(
-      <div className='jumbotron col-sm-6 col-sm-offset-3 text-center' style={transparentBg}>
-        <h1>{this.props.route.header}</h1>
-        <div className='col-sm-12'>
-          <form onSubmit={this.onSubmitUser}>
-            <div className='form-group'>
-              <input
-                type="text"
-                className='form-control'
-                onChange={this.onUpdateUser}
-                value={this.state.username}
-                placeholder='GitHub Username'/>
-            </div>
-
-            <div className='form-group col-sm-4 col-sm-offset-4'>
-              <button className='btn btn-block btn-success'>
-                Continue
-              </button>
-
-            </div>
-
-          </form>
-        </div>
-
-      </div>
+    return (
+      <Prompt
+            onSubmitUser = {this.handleSubmitUser}
+            onUpdateUser = {this.handleUpdateUser}
+            header = {this.props.route.header}
+            username = {this.state.username}
+      />
     )
+
+
   }
 })
 
