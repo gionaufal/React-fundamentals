@@ -239,3 +239,14 @@ Besides being simpler to write, this way you can separate presentational compone
 
 ####Mounting/Unmounting
 These methods are invoked only once during the life of the component
+
+
+----
+
+### `this` keyword
+
+- Implicit binding
+- Left of the dot at call time
+- Explicit binding - you have to use .call on the function to explicitly say where is the context of this function. Using .apply you can pass an array as your arguments.
+- new binding
+- window binding
