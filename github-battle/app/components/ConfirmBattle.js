@@ -26,7 +26,7 @@ function ConfirmBattle (props) {
       </div>
       <div className='col-sm-8 col-sm-offset-2'>
         <div className='col-sm-12' style={styles.space}>
-          <button type='button' className='btn btn-lg btn-success' onClick={props.onInitiabeBattle}>
+          <button type='button' className='btn btn-lg btn-success' onClick={props.onInitiateBattle}>
             Initiate Battle!
           </button>
         </div>
@@ -44,8 +44,8 @@ function ConfirmBattle (props) {
 
 ConfirmBattle.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  onInitiabeBattle: PropTypes.func.isRequired,
-  playersInfo: PropTypes.array.isRequired
+  onInitiateBattle: PropTypes.func.isRequired,
+  playersInfo: PropTypes.array.isRequired,
 }
 
 module.exports = ConfirmBattle;
